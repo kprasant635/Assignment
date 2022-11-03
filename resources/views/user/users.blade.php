@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-
+         <!-- This session message use for When user add or delete Showing the message. -->
         @if (session('msg'))
         <div class="alert alert-primary border-0 bg-primary alert-dismissible fade show">
             <div class="text-white">{{ session('msg') }}</div>
@@ -60,6 +60,9 @@
                                     $users_record->leavedate=Carbon\Carbon::now();
                                     @endphp
                                     @endif
+
+                                    <!-- This is custom helper which helps to get experience. -->
+
                                     <td>{!! Helper::experience($users_record->joindate,$users_record->leavedate) !!}</td>
                                     <td>
                                         <a href="" class="bg-warning text-white pd_db_r1 show_confirm" data-toggle="tooltip" title='Delete'><i class="bx bx-trash"></i></a>
@@ -72,6 +75,7 @@
                 </div>
             </div>
         </div>
+        <!-- User Insert Modal Popup Start -->
         <div class="modal" id="insertModal">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -125,7 +129,7 @@
             </div>
         </div>
 
-
+        <!-- End User Insert Modal Popup -->
 
     </div>
 </div>
@@ -134,6 +138,7 @@
 @section("script")
 
 <script>
+    // this function is use for leave date show hide when still working check
     $(document).ready(function() {
 
         $('#flexCheckDefault').change(function() {
@@ -147,7 +152,9 @@
 
 
         });
+    // End show hide
 
+    //This is use for Form validation 
         $('form[id="form-valid"]').validate({
             rules: {
                 email: {
@@ -188,7 +195,11 @@
         });
 
     });
+
+    // End Form Validation
 </script>
+<!-- Here this script use for sweet alert  -->
+<!-- Start -->
 <script type="text/javascript">
     $('.show_confirm').click(function(event) {
         var id = $('#user_id').text();
@@ -206,7 +217,7 @@
             });
     });
 </script>
-
+<!-- End -->
 <script src="assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
 <script src="assets/js/index3.js"></script>
 
